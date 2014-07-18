@@ -17,21 +17,42 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+
+  // define client routes
   .config(function ($routeProvider) {
+    var access = routingConfig.accessLevels;
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        access: access.user
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        access: access.public
       })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        access: access.anon
       })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+  // verifiy user is logged at each route change
+  .run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      if (!Auth.authorize(next.access)) {
+        if (Auth.isLoggedIn()) {
+          $location.path('/');
+        }
+        else {
+          $location.path('/login');
+        }
+      }
+    });
+  }]);
