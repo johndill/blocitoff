@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var app = express();
 var port = process.env.PORT || 8000;
 
-mongoose.connect('');
+//mongoose.connect('');
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/dist'));
