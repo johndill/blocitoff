@@ -5,10 +5,12 @@ var csrf = require('csurf');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var mongoose = require('mongoose');
 
 var app = express();
 var port = process.env.PORT || 8000;
 
+mongoose.connect('');
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/dist'));
