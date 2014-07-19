@@ -5,7 +5,10 @@ var userSchema = mongoose.Schema({
 	local: {
 		username: String,
 		password: String,
-		role: String
+		role: {
+			bitMask: Number,
+			title: String
+		}
 	}
 });
 

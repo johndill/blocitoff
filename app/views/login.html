@@ -1,6 +1,6 @@
 <div class='container'>
 	<div class='col-sm-6 col-sm-offset-3'>
-		<form data-ng-submit='login()'>
+		<form>
 			<div class='form-group'>
 				<label>Username</label>
 				<input type='text' class='form-control' name='username' data-ng-model='username' required autofocus>
@@ -11,8 +11,8 @@
 			</div>
 			<br/>
 			<div class='form-group'>
-				<button type='submit' class='btn btn-primary btn-lg'>Log In</button>
-				<button ng-click='signup()' class='btn btn-info btn-lg'>Sign Up</button>
+				<button data-ng-click='login()' class='btn btn-primary btn-lg'>Log In</button>
+				<button data-ng-click='signup()' class='btn btn-info btn-lg'>Sign Up</button>
 			</div>
 		</form>
 	</div>
