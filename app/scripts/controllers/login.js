@@ -14,7 +14,7 @@ angular.module('blocitoffApp')
   			Auth.login({
 	  				username: $scope.username,
 	  				password: $scope.password,
-	  				rememberme: $scope.rememberme
+	  				rememberme: true
   				},
   				function() {
   					$location.path('/');
@@ -28,8 +28,7 @@ angular.module('blocitoffApp')
   		$scope.signup = function() {
   			Auth.signup({
 	  				username: $scope.username,
-	  				password: $scope.password,
-	  				role: $scope.role
+	  				password: $scope.password
 	  			},
 	  			function() {
 	  				$location.path('/');

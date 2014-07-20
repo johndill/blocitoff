@@ -48,6 +48,7 @@ angular
   // verifiy user is logged at each route change
   .run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      $rootScope.error = null;
       if (!Auth.authorize(next.access)) {
         if (Auth.isLoggedIn()) {
           $location.path('/');

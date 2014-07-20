@@ -15,7 +15,6 @@ var app = express();
 var port = process.env.PORT || 8000;
 
 mongoose.connect('mongodb://admin:admin@kahana.mongohq.com:10030/app27532717');
-require('./server/passport.js')(passport);  // pass passport for configuration
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,6 +35,7 @@ app.use(function(req, res, next) {
 });
 
 // passport stuff
+require('./server/passport.js')(passport);  // pass passport for configuration
 app.use(passport.initialize());
 app.use(passport.session());
 

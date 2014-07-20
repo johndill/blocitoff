@@ -7,7 +7,7 @@ angular.module('blocitoffApp')
 		var currentUser = $cookieStore.get('user') || { username: '', role: userRoles.public };
 
 		// immediately remove cookie after it is read
-		$cookieStore.remove('user');
+		$cookieStore.remove('blocitoffUser');
 
 		function changeUser(user) {
 			angular.extend(currentUser, user);
