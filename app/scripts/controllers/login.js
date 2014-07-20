@@ -38,5 +38,9 @@ angular.module('blocitoffApp')
 	  			}
   			);
   		};
+
+      $scope.loginOauth = function(provider) {
+        $window.location.href = '/auth/' + provider;
+      };
   	}
   ]);

@@ -23,10 +23,19 @@ module.exports = function(app, passport) {
 		res.sendfile(requestedView);
 	});
 
-	// auth
+	// local auth
 	app.post('/signup', AuthCtrl.signup);
 	app.post('/login', AuthCtrl.login);
 	app.post('/logout', AuthCtrl.logout);
+
+	//  google auth
+	app.get('/auth/google', passport.authenticate('google', {
+		scope: ['profile', 'email']
+	}));
+	app.get('/auth/google/callback', passport.authenticate('google', {
+		successRedirect: '/_',
+    failureRedirect: '/login'
+	}));
 
 	// all other requests
 	app.get('/*', function(req, res) {
