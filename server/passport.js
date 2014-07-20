@@ -4,13 +4,28 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require(__dirname + '/models/user.js');
 var userRoles = require('../dist/scripts/routingConfig.js').userRoles;
 
-var authConfig = {
-	'googleAuth': {
-		'clientID': '842916121088-8ne18t9th9bis3f94e7umq9d75q61mfs.apps.googleusercontent.com',
-		'clientSecret': 'WBreTm14e4VJ3sZsxGm8CIu7',
-		'callbackURL': 'http://localhost:8000/auth/google/callback'
-	}
-};
+var authConfig
+
+if (process.env.NODE_ENV === 'production') {
+	authConfig = {
+		'googleAuth': {
+			'clientID': '842916121088-75kdjh9366gshg7pc7qta65o5261vhh9.apps.googleusercontent.com',
+			'clientSecret': 'nD4Cx8XptYGOfG9fxAVV8OTn',
+			'callbackURL': 'http://blocitoff-dill.herokuapp.com/auth/google/callback'
+		}
+	};
+}
+else {
+	authConfig = {
+		'googleAuth': {
+			'clientID': '842916121088-8ne18t9th9bis3f94e7umq9d75q61mfs.apps.googleusercontent.com',
+			'clientSecret': 'WBreTm14e4VJ3sZsxGm8CIu7',
+			'callbackURL': 'http://localhost:8000/auth/google/callback'
+		}
+	};
+}
+
+
 
 module.exports = function(passport) {
 	passport.serializeUser(function(user, done) {
