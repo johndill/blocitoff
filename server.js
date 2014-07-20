@@ -29,13 +29,11 @@ app.use(session({
 	saveUninitialized: true
 }));
 
-/*
 app.use(csrf());
 app.use(function(req, res, next) {
 	res.cookie('XSRF-TOKEN', req.csrfToken());
 	next();
 });
-*/
 
 // passport stuff
 app.use(passport.initialize());

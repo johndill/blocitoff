@@ -31,6 +31,6 @@ module.exports = function(app, passport) {
 			'role': role
 		}));
 
-		res.sendfile('../dist/index.html');
+		res.sendfile(path.resolve('./dist/index.html'));
 	});
 }
