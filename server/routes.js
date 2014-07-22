@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var path = require('path');
 var AuthCtrl = require('./controllers/auth.js');
+var TodoCtrl = require('./controllers/todo.js');
 var userRoles = require('../dist/scripts/routingConfig.js').userRoles;
 
 module.exports = function(app, passport) {
@@ -27,6 +28,9 @@ module.exports = function(app, passport) {
 	app.post('/signup', AuthCtrl.signup);
 	app.post('/login', AuthCtrl.login);
 	app.post('/logout', AuthCtrl.logout);
+
+	// todo list
+	app.post('/newlist', TodoCtrl.newlist);
 
 	//  google auth
 	app.get('/auth/google', passport.authenticate('google', {
