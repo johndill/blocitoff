@@ -6,8 +6,7 @@ var todoSchema = new Schema({
 	listName: String,
 	listItems: [{
 		text: String,
-		created: Date,
-		expired: Boolean
+		created: Date
 	}]
 });
 

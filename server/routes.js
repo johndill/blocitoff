@@ -31,6 +31,7 @@ module.exports = function(app, passport) {
 
 	// todo list
 	app.post('/newlist', TodoCtrl.newlist);
+	app.post('/additem', TodoCtrl.additem);
 
 	//  google auth
 	app.get('/auth/google', passport.authenticate('google', {
