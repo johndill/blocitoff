@@ -77,3 +77,32 @@ body {
     border-bottom: 0;
   }
 }
+
+/* todo list menu */
+.page-header {
+  padding-bottom: 9px;
+  margin: 20px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.page-header h1 {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.page-header button {
+  margin-top: 10px;
+}
+
+.list-menu a {
+  font-size: 24px;
+}
+
+.list-menu .fa-times {
+  color: firebrick;
+  font-size: 32px;
+}
+
+.list-menu .fa-times:hover {
+  color: darkred;
+}
