@@ -26,6 +26,7 @@ body {
 
 /* Custom page footer */
 .footer {
+  margin-top: 60px;
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
@@ -98,11 +99,23 @@ body {
   font-size: 24px;
 }
 
-.list-menu .fa-times {
-  color: firebrick;
-  font-size: 32px;
+.input-group input {
+  font-size: 24px;
+  height: 56px;
 }
 
-.list-menu .fa-times:hover {
-  color: darkred;
+.list-group-item span {
+  cursor: pointer;
+}
+
+.list-group-item .fa {
+  margin-top: 6px;
+}
+
+.list-menu .fa-times-circle {
+  color: lightgray;
+}
+
+.list-menu .fa-times-circle:hover {
+  color: firebrick;
 }

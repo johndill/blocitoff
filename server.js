@@ -28,11 +28,13 @@ app.use(session({
 	saveUninitialized: true
 }));
 
+/*
 app.use(csrf());
 app.use(function(req, res, next) {
 	res.cookie('XSRF-TOKEN', req.csrfToken());
 	next();
 });
+*/
 
 // passport stuff
 require('./server/passport.js')(passport);  // pass passport for configuration

@@ -1,46 +1,34 @@
 'use strict';
 
 angular.module('blocitoffApp')
-	.factory('Todo', ['$http', 'Auth', function($http, Auth) {
-
-		function changeList(list) {
-			
-		}
+	.factory('Todo', ['$http', '$rootScope', 'Auth', function($http, $rootScope, Auth) {
 
 		return {
-			newList: function(listName, success, error) {
-				var listToCreate = { username: Auth.user, listName: listName };
+			createList: function(listName, success, error) {
+				var listToCreate = { username: Auth.user.username, listName: listName };
 				$http.post('/newlist', listToCreate)
 					.success(function(res) {
-						changeUser(res);
 						success();
 					})
 					.error(error);
 			},
 
-			login: function(user, success, error) {
-				$http.post('/login', user)
+			removeList: function(listId, success, error) {
+				var listToRemove = { username: Auth.user.username, listId: listId };
+				$http.post('/removeList', listToRemove)
 					.success(function(res) {
-						changeUser(res);
 						success();
 					})
 					.error(error);
 			},
 
-			logout: function(success, error) {
-				$http.post('/logout')
-					.success(function() {
-						changeUser({
-							username: '',
-							role: userRoles.public
-						});
-						success();
+			getListNames: function(success, error) {
+				var listNames;
+				$http.post('/getlistnames', { username: Auth.user.username })
+					.success(function(res) {
+						$rootScope.$broadcast('todo.listNamesUpdated', res);
 					})
 					.error(error);
-			},
-
-			accessLevels: accessLevels,
-			userRoles: userRoles,
-			user: currentUser
+			}
 		};
 	}]);
