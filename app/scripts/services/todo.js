@@ -38,6 +38,24 @@ angular.module('blocitoffApp')
 						$rootScope.$broadcast('todo.listUpdated', res);
 					})
 					.error(error);
+			},
+
+			addListItem: function(listId, text, success, error) {
+				var itemToAdd = { username: Auth.user.username, listId: listId, text: text };
+				$http.post('/additem', itemToAdd)
+					.success(function(res) {
+						success();
+					})
+					.error(error);
+			},
+
+			removeListItem: function(listId, itemId, success, error) {
+				var itemToRemove = { username: Auth.user.username, listId: listId, itemId: itemId };
+				$http.post('/removeitem', itemToRemove)
+					.success(function(res) {
+						success();
+					})
+					.error(error);
 			}
 		};
 	}]);

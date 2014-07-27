@@ -66,7 +66,7 @@ module.exports = {
 			}
 			else {
 				// get list from username and listname
-				Todo.findOne({ 'userId': user._id, 'listName': req.body.listName }, function(err, list) {
+				Todo.findOne({ 'userId': user._id, '_id': req.body.listId }, function(err, list) {
 					if (err) {
 						res.send(500, err);
 					}

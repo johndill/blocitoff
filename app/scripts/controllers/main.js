@@ -18,6 +18,7 @@ angular.module('blocitoffApp')
 
         $scope.createList = function(listName) {
         	Todo.createList(listName, Todo.getListNames);
+            $scope.newListName = '';
         };
 
         $scope.removeList = function(listId) {

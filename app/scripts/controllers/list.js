@@ -8,4 +8,14 @@ angular.module('blocitoffApp')
     $scope.$on('todo.listUpdated', function(e, data) {
         $scope.list = data;
     });
+
+    $scope.addListItem = function(text) {
+        Todo.addListItem($scope.listId, text, Todo.getList);
+        $scope.newListItem = '';
+    };
+
+    $scope.removeListItem = function(itemId) {
+        Todo.removeListItem($scope.listId, itemId, Todo.getList);
+    };
+
   }]);
