@@ -32,7 +32,12 @@ angular.module('blocitoffApp')
 			var expires = created.add('d', 7);
 
 			function updateTime() {
-				element.text(dateDiff(new Date(), expires));
+				var now = new Date();
+				element.text(dateDiff(now, expires));
+				// set element to expired
+				if ((expires - now) <= 0) {
+					scope;
+				}
 			}
 
 			function nextTime() {

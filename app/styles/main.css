@@ -32,6 +32,10 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+.header .fa-bomb {
+  color: firebrick;
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
