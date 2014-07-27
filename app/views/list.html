@@ -14,10 +14,15 @@
   </form>
   <p></p>
 
-  <div class="list-group list-menu">
+  <div class="list-group list-items">
   	<a class='list-group-item' data-ng-repeat='item in list.listItems'>
   		<div data-item-id="{{ item._id }}">
-    		<span>{{ item.text }}</span>
+    		<span>
+          <div>
+            {{ item.text }}
+            <div class='list-item-expires'>Expires: <span data-time-remaining="" data-item-created="{{ item.created }}"></span></div>
+          </div>
+        </span>
       	<span title='Remove List Item' class='fa fa-times-circle fa-inverse pull-right' data-ng-click='removeListItem("{{ item._id }}")'></span>
     	</div>
   	</a>
