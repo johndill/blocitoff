@@ -29,6 +29,15 @@ angular.module('blocitoffApp')
 						$rootScope.$broadcast('todo.listNamesUpdated', res);
 					})
 					.error(error);
+			},
+
+			getList: function(success, error) {
+				var listToGet = { username: Auth.user.username, listId: $rootScope.listId };
+				$http.post('/getlist', listToGet)
+					.success(function(res) {
+						$rootScope.$broadcast('todo.listUpdated', res);
+					})
+					.error(error);
 			}
 		};
 	}]);

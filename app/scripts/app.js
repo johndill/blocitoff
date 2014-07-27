@@ -38,6 +38,11 @@ angular
         controller: 'LoginCtrl',
         access: access.anon
       })
+      .when('/list', {
+        templateUrl: 'views/list.html',
+        controller: 'ListCtrl',
+        access: access.user
+      })
       .otherwise({
         redirectTo: '/'
       });

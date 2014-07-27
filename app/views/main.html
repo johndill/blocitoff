@@ -17,7 +17,7 @@
   <div class="list-group list-menu">
   	<a class='list-group-item' data-ng-repeat='list in lists'>
   		<div data-list-id="{{ list._id }}">
-    		<span title='Open List' data-ng-click='$log.log("open list")'>{{ list.listName }}</span>
+    		<span title='Open List' data-ng-click='openList("{{ list._id }}")'>{{ list.listName }}</span>
       	<span title='Delete List' class='fa fa-times-circle fa-inverse pull-right' data-ng-click='removeList("{{ list._id }}")'></span>
     	</div>
   	</a>

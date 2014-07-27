@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="page-header">
+    <h1>{{ list.listName }}</h1>
+  </div>
+  <form role="form" ng-submit="">
+    <div class="row">
+      <div class="input-group">
+        <input type="text" ng-model="newListItem" placeholder="What needs to be done?" class="form-control">
+        <span class="input-group-btn">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+      </div>
+    </div>
+  </form>
+  <p></p>
+
+  <div class="list-group list-menu">
+  	<a class='list-group-item' data-ng-repeat='item in list.listItems'>
+  		<div data-item-id="{{ item._id }}">
+    		<span>{{ item.text }}</span>
+      	<span title='Remove List Item' class='fa fa-times-circle fa-inverse pull-right'></span>
+    	</div>
+  	</a>
+  </div>
+</div>
